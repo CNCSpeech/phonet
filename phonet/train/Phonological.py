@@ -14,7 +14,7 @@ class Phonological:
 
     def __init__(self):
 
-        self.list_phonological={"vocalic" : ["IY", "IH", "EH", "AE", "UW", "AX", "AH", "AA", "UH", "OY", "AA", "OW", "EY"],
+        self.list_phonological={"vocalic" : ["IY", "IH", "EH", "AE", "UW", "AXR", "AX", "AH", "AA", "UH", "OY", "OW", "EY", "AY", "AW", "ER", "IX", "AO", "UX"],
                       "consonantal" : ["F", "V", "TH", "DH", "S", "Z", "SH", "ZH", "HH", "H", "P", "B", "Y", "D", "K", "G", "CH", "JH", "W", "R", "RX", "Y", "Z", "M", "N", "NX", "NG", "Q"],
                       "back"        : ["UW", "AH", "OY", "AA"],
                       "near-back"   : ["UH"],
@@ -28,11 +28,8 @@ class Phonological:
                       "near-close"  : ["IH", "UH"],
                       "close"       : ["IY", "UW"],
                       "nasal"       : ["M", "N", "NX", "NG"],
-                      #"stop"        : ["p","b", "B","t","k","g", "G","tS","d", "D"],
-                      #"continuant"  : ["f", "F","b", "B","tS","d", "D","s", "Z", "T","x", "jj", "J","g", "G","S","L","x", "jj", "J", "z"],
                       "lateral"     :["L"],
                       "flap"        :["RX"],
-                      #"trill"       :["rr"],
                       "voice"       :["IY", "IH", "EH", "AE", "UW", "AX", "AH", "AA", "UH", "OY", "AA", "V", "DH", "Z", "ZH", "B", "D", "G", "JH", "W", "R", "RX", "Y", "L", "M", "N", "NX", "NG"],
                       "voiceless"   :["F", "TH", "S", "SH", "HH", "H", "P", "K","T", "CH", "Q"],
                       "fricative"   :["F", "V", "TH", "DH", "S", "Z", "SH", "ZH", "HH", "H"],
