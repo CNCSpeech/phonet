@@ -7,6 +7,7 @@ PATH=os.path.dirname(os.path.abspath(__file__))
 sys.path.append(PATH)
 from Phonological import Phonological
 from tqdm import tqdm
+from IPython import embed
 
 if __name__=="__main__":
     if len(sys.argv)!=4:
@@ -63,7 +64,7 @@ if __name__=="__main__":
 
             for k in list_phonokeys:
                 Lab[k]=np.stack(Lab[k], axis=0)
-                Lab[k]=np.expand_dims(Lab[k], axis=2)
+                Lab[k]=np.expand_dims(Lab[k], axis=Lab[k].ndim)
             
 
             save={'features': featmat_t, 'labels':Lab}
