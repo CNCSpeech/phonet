@@ -2,7 +2,7 @@ import sys
 from six.moves import cPickle as pickle
 
 from keras.layers import Input, BatchNormalization, Bidirectional, GRU, Permute, Reshape, Lambda, Dense, RepeatVector, multiply, TimeDistributed, Dropout, LSTM
-from keras.utils import np_utils
+from keras.utils import to_categorical
 from keras.models import Model
 from keras import optimizers
 import keras.backend as K
@@ -70,7 +70,7 @@ def generate_data(directory, batch_size, mu, std):
                 weights_t[p]=class_weights[-1][j]
             weights.append(weights_t[:,:,0])
             if len(lab)>1:
-                y2.append(np_utils.to_categorical(ystack))
+                y2.append(to_categorical(ystack))
             else:
                 da=np.zeros((batch_size,ystack.shape[1], 2))
                 da[:,:,0]=1

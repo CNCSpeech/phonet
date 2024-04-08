@@ -3,7 +3,7 @@ import sys
 from six.moves import cPickle as pickle
 
 from keras.layers import Input, BatchNormalization, Bidirectional, GRU, Permute, Reshape, Lambda, Dense, RepeatVector, multiply, TimeDistributed, Dropout, LSTM
-from keras.utils import np_utils
+from keras.utils import to_categorical
 from keras.models import Model
 from keras import optimizers
 import keras.backend as K
@@ -45,11 +45,15 @@ def generate_data(directory, batch_size, problem, mu, std, num_labels):
             i += 1
         y=np.stack(y, axis=0)
         
-        y2=np_utils.to_categorical(y)
+        y2=to_categorical(y)
         ystack=np.concatenate(y, axis=0)
         ystack=np.hstack(ystack)
         lab, count=np.unique(ystack, return_counts=True)
-        class_weights=class_weight.compute_class_weight('balanced', np.unique(y), ystack[0,:])
+        class_weights=class_weight.compute_class_weight(
+                                                            class_weight ='balanced', 
+                                                            classes = np.unique(y), 
+                                                            y= ystack[0,:]
+                                                        )
         weights=np.zeros((y.shape))
 
         for j in range(len(lab)):
@@ -229,8 +233,8 @@ if __name__=="__main__":
     #                  title='Confusion matrix, without normalization')
 
     # Plot normalized confusion matrix
-    ax2=plot_confusion_matrix(ytv, ypredv, file_res=file_results+"/cm.png", classes=class_names, normalize=True,
-                        title='Normalized confusion matrix')
+    # ax2=plot_confusion_matrix(ytv, ypredv, file_res=file_results+"/cm.png", classes=class_names, normalize=True,
+    #                     title='Normalized confusion matrix')
 
     prec=precision_score(ytv, ypredv, average='weighted')
     rec=recall_score(ytv, ypredv, average='weighted')
