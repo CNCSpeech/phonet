@@ -4,6 +4,7 @@ import numpy as np
 from sklearn.metrics import confusion_matrix
 import os
 from six.moves import cPickle as pickle
+import pickle5 as pickle
 from tqdm import tqdm
 from Phonological import Phonological
 

@@ -1,17 +1,18 @@
 
 import sys
 from six.moves import cPickle as pickle
+import pickle5 as pickle
 
-from keras.layers import Input, BatchNormalization, Bidirectional, GRU, Permute, Reshape, Lambda, Dense, RepeatVector, multiply, TimeDistributed, Dropout, LSTM
-from keras.utils import to_categorical
-from keras.models import Model
-from keras import optimizers
-import keras.backend as K
-from keras.callbacks import EarlyStopping, ModelCheckpoint
+from tensorflow.keras.layers import Input, BatchNormalization, Bidirectional, GRU, Permute, Reshape, Lambda, Dense, RepeatVector, multiply, TimeDistributed, Dropout, LSTM
+from tensorflow.keras.utils import to_categorical
+from tensorflow.keras.models import Model
+from tensorflow.keras import optimizers
+import tensorflow.keras.backend as K
+from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint
 
 import numpy as np
 import os
-from utils import plot_confusion_matrix
+# from utils import plot_confusion_matrix
 from sklearn.metrics import classification_report, recall_score, precision_score, f1_score
 #import pandas as pd
 
@@ -84,12 +85,11 @@ def generate_data_test(directory, batch_size, mu, std):
     while True:
         seq_batch = []
         for b in range(batch_size):
-            with open(directory+file_list[i], 'rb') as f:
+            with open(os.path.join(directory, file_list[i]), 'rb') as f:
                 save = pickle.load(f)
-            f.close()
             seq_batch.append((save['features']-mu)/std)
-            i+=1
-        seq_batch=np.stack(seq_batch, axis=0)
+            i = (i + 1) % len(file_list)  # Reset i to 0 when it reaches the end of file_list
+        seq_batch = np.stack(seq_batch, axis=0)
         yield seq_batch
 
 def get_test_labels(directory, batch_size, problem):
@@ -166,7 +166,7 @@ if __name__=="__main__":
     num_labels=len(phonemes)
     Learning_rate=0.0005
     recurrent_droput_prob=0.0
-    epochs=1000
+    epochs=20
     batch_size=64
 
     modelPH=DeepArch(input_size, GRU_size, hidden, num_labels, Learning_rate, recurrent_droput_prob)

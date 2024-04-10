@@ -1,12 +1,13 @@
 import sys
 from six.moves import cPickle as pickle
+import pickle5 as pickle
 
-from keras.layers import Input, BatchNormalization, Bidirectional, GRU, Permute, Reshape, Lambda, Dense, RepeatVector, multiply, TimeDistributed, Dropout, LSTM
-from keras.utils import to_categorical
-from keras.models import Model
-from keras import optimizers
-import keras.backend as K
-from keras.callbacks import EarlyStopping, ModelCheckpoint, tensorboard_v1
+from tensorflow.keras.layers import Input, BatchNormalization, Bidirectional, GRU, Permute, Reshape, Lambda, Dense, RepeatVector, multiply, TimeDistributed, Dropout, LSTM
+from tensorflow.keras.utils import to_categorical
+from tensorflow.keras.models import Model
+from tensorflow.keras import optimizers
+import tensorflow.keras.backend as K
+from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint
 
 import numpy as np
 import os
@@ -187,7 +188,7 @@ if __name__=="__main__":
     num_labels=[2 for j in range(len(keys))]
     Learning_rate=0.0001
     recurrent_droput_prob=0.0
-    epochs=1000
+    epochs=10
     batch_size=64
 
 
