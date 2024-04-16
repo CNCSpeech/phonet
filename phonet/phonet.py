@@ -69,7 +69,7 @@ class Phonet:
         
     def load_model(self):
         input_size=(self.len_seq, self.nfeat)
-        model_file=self.path+"/models/model.h5"
+        model_file=self.path+"/models/english_finetune/MT/model.h5"
         Model=self.model(input_size)
         Model.load_weights(model_file)
         return Model
@@ -92,14 +92,15 @@ class Phonet:
 
     def load_model_phon(self):
         input_size=(self.len_seq, self.nfeat)
-        Model_phonemes=self.path+"/models/phonemes.hdf5"
+        # Model_phonemes=self.path+"/models/english_finetune/MT/phonemes.hdf5"
+        Model_phonemes=self.path+"/models/english_finetune/MT/weights.hdf5"
         Model_phon=self.modelp(input_size)
         Model_phon.load_weights(Model_phonemes)
         return Model_phon
 
     def load_scaler(self):
-        file_mu=self.path+"/models/mu.npy"
-        file_std=self.path+"/models/std.npy"
+        file_mu=self.path+"/models/english_finetune/MT/mu.npy"
+        file_std=self.path+"/models/english_finetune/MT/std.npy"
         MU=np.load(file_mu)
         STD=np.load(file_std)
 
