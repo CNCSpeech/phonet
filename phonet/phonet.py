@@ -256,6 +256,8 @@ class Phonet:
             nf=len(pred_vec_phon)
         
         phonemes_list=self.number2phoneme(pred_vec_phon[:nf])
+        probas_list = list(np.max(pred_mat_phon_seq,1))[:nf]
+        phoneme_and_probas = list(zip(phonemes_list, probas_list))
 
         t2=np.arange(nf)*self.time_shift
         
@@ -281,7 +283,8 @@ class Phonet:
         if len(feat_file)>0:
             dfa.to_csv(feat_file, index=False)
         gc.collect()
-        return dfa
+        #return dfa
+        return dfa, phoneme_and_probas
 
     def plot_phonological(self, feat_file, fs, signal, dfa, phonemes_list, t2):
         n_plots=int(np.ceil(len(self.keys_val)/4))
