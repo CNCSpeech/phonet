@@ -288,7 +288,7 @@ class Phonet:
 
     def plot_phonological(self, feat_file, fs, signal, dfa, phonemes_list, t2):
         n_plots=int(np.ceil(len(self.keys_val)/4))
-        figsize=(6,int(n_plots*3))
+        figsize=(12,int(n_plots*3))
         colors = cm.get_cmap('Accent', 5)
         col_order=[0,1,2,3]*n_plots
         plt.figure(figsize=figsize)

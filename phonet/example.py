@@ -19,16 +19,16 @@ if __name__=="__main__":
     if not os.path.exists(path_results):
         os.makedirs(path_results)
     ## get the "stop" phonological posterior from a single file
-    file_audio=PATH+"/audios/pataka.wav"
-    file_feat=path_results+"/pataka"
+    file_audio=PATH+"/audios/test_en.wav"
+    file_feat=path_results+"/test_en"
     phon=Phonet(["vocalic"])
     phon.get_phon_wav(file_audio, file_feat, True)
 
-    # get the "nasal" phonological posterior from a single file
-    file_audio=PATH+"/audios/sentence.wav"
-    file_feat=path_results+"/sentence_nasal"
-    phon=Phonet(["nasal"])
-    phon.get_phon_wav(file_audio, file_feat, True)
+    # # get the "nasal" phonological posterior from a single file
+    # file_audio=PATH+"/audios/sentence.wav"
+    # file_feat=path_results+"/sentence_nasal"
+    # phon=Phonet(["nasal"])
+    # phon.get_phon_wav(file_audio, file_feat, True)
 
     # get the "strident" phonological posterior from a single file
     file_feat=path_results+"/sentence_strident"
