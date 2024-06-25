@@ -35,6 +35,8 @@ if __name__=="__main__":
 
     hf=os.listdir(path_audios)
     hf.sort()
+    #exclude .txt files
+    hf=[f for f in hf if f.endswith('.wav')]
     pbar=tqdm(range(len(hf)))
     for j in pbar:
         pbar.set_description("Processing %s" % hf[j])

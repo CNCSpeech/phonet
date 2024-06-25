@@ -1,3 +1,7 @@
+# en linux tuve que correr: sudo apt-get install python3.7-dev para poder instalar 
+# el paquete pysptk (https://stackoverflow.com/questions/21530577/fatal-error-python-h-no-such-file-or-directory)
+# también hay que usar python3.7 en general
+
 pandas==0.23.4
 scipy==1.1.0
 Keras==2.2.4

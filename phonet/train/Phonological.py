@@ -14,37 +14,27 @@ class Phonological:
 
     def __init__(self):
 
-        self.list_phonological={"vocalic" : ["IY", "IH", "EH", "AE", "UW", "AXR", "AX", "AH", "AA", "UH", "OY", "OW", "EY", "AY", "AW", "ER", "IX", "AO", "UX"],
-                      "consonantal" : ["F", "V", "TH", "DH", "S", "Z", "SH", "ZH", "HH", "H", "P", "B", "Y", "D", "K", "G", "CH", "JH", "W", "R", "RX", "Y", "Z", "M", "N", "NX", "NG", "Q"],
-                      "back"        : ["UW", "AH", "OY", "AA"],
-                      "near-back"   : ["UH"],
-                      "central"     : ["AX"],
-                      "near-front"  : ["IH"],
-                      "front"       : ["IY", "EH", "AE", "AA"],
-                      "open"        : ["AA"],
-                      "near-open"   : ["AE"],
-                      "mid-open"    : ["AH", "OY"],
-                      "mid-close"   : ["EH", "AX"],
-                      "near-close"  : ["IH", "UH"],
-                      "close"       : ["IY", "UW"],
-                      "nasal"       : ["M", "N", "NX", "NG"],
-                      "lateral"     :["L"],
-                      "flap"        :["RX"],
-                      "voice"       :["IY", "IH", "EH", "AE", "UW", "AX", "AH", "AA", "UH", "OY", "AA", "V", "DH", "Z", "ZH", "B", "D", "G", "JH", "W", "R", "RX", "Y", "L", "M", "N", "NX", "NG"],
-                      "voiceless"   :["F", "TH", "S", "SH", "HH", "H", "P", "K","T", "CH", "Q"],
-                      "fricative"   :["F", "V", "TH", "DH", "S", "Z", "SH", "ZH", "HH", "H"],
-                      "plosive"     :["G", "P", "B", "T", "D", "K", "G","Q"],
-                      "affricate"   :["CH", "JH"],
-                      "approximant" :["W", "R", "Y"],
-                      "lateral-approximant":["L"],
-                      "labiodental" :["F", "V"],
-                      "dental"      :["TH", "DH"],
-                      "alveolar"    :["S", "Z", "T", "D", "R", "RX", "L", "N"],
-                      "alveopalatal":["SH", "ZH", "CH", "JH"],
-                      "glottal"     :["HH", "H", "Q"],
-                      "bilabial"    :["P", "B", "M", "W"],
-                      "velar"       :["K", "G", "NG", "NX"],
-                      "pause"       :  ["sil", "<p:>", "sp"]}
+        self.list_phonological={"vocalic" : ["a","e","i","o","u", "w", "j"],
+                      "consonantal" : ["b", "B","d", "D","f", "F","k","l","m","n", "N","p","r","rr","s", "Z", "T","t","g", "G","tS","S","x", "jj", "J", "L", "z"],
+                      "back"        : ["a","o","u", "w"],
+                      "anterior"    : ["e","i","j"],
+                      "open"        : ["a","e","o"],
+                      "close"       : ["j","i","u", "w"],
+                      "nasal"       : ["m","n", "N"],
+                      "stop"        : ["p","b", "B","t","k","g", "G","tS","d", "D"],
+                      "target_vowels": ["a"],
+                      "target_plosives": ["p","t","k"],
+                      "non_target_plosives": ["b", "B", "g", "G", "d", "D"],
+                      "continuant"  : ["f", "F","b", "B","tS","d", "D","s", "Z", "T","x", "jj", "J","g", "G","S","L","x", "jj", "J", "z"],
+                      "lateral"     :["l"],
+                      "flap"        :["r"],
+                      "trill"       :["rr"],
+                      "voice"       :["a","e","i","o","u", "w","b", "B","d", "D","l","m","n", "N","rr","g", "G","L", "j"],
+                      "strident"    :["tS","f", "F","s", "Z", "T", "z",  "S"],
+                      "labial"      :["m","p","b", "B","f", "F"],
+                      "dental"      :["t","d", "D"],
+                      "velar"       :["k","g", "G"],
+                      "pause"       :  ["sil", "<p:>"]}
 
 
     def get_list_phonological(self):
@@ -53,6 +43,7 @@ class Phonological:
     def get_list_phonological_keys(self):
         keys=self.list_phonological.keys()
         return list(keys)
+
 
     def get_d1(self):
         keys=self.get_list_phonological_keys()
@@ -81,13 +72,10 @@ class Phonological:
 def main():
     phon=Phonological()
     keys=phon.get_list_phonological_keys()
-    print(keys)
+
     d1=phon.get_d1()
-    print(d1)
     d2=phon.get_d2()
-    print(d2)
     ph=phon.get_list_phonemes()
-    print(ph)
 
 if __name__=="__main__":
     main()

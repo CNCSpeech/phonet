@@ -21,9 +21,9 @@ from tensorflow import keras
 import gc
 from matplotlib import cm
 try:
-    from phonet.Phonological import Phonological
+    from phonet.Phonological_en import Phonological
 except:
-    from Phonological import Phonological
+    from phonet.Phonological_en import Phonological
 
 from tqdm import tqdm
 
