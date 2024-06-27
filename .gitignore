@@ -79,6 +79,7 @@ celerybeat-schedule
 
 # Environments
 .env
+.env_run_model
 .venv
 env/
 venv/
