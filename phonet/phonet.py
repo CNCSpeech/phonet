@@ -66,6 +66,7 @@ class Phonet:
     def load_model(self):
         input_size=(self.len_seq, self.nfeat)
         model_file=self.path+"/models/model.h5"
+        model_file=self.path+"/models/custom/model.h5"
         Model=self.model(input_size)
         Model.load_weights(model_file)
         return Model
@@ -90,13 +91,14 @@ class Phonet:
         input_size=(self.len_seq, self.nfeat)
         # Model_phonemes=self.path+"/models/english_finetune/MT/phonemes.hdf5"
         Model_phonemes=self.path+"/models/phonemes.hdf5"
+        # Model_phonemes=self.path+"/models/weights.hdf5"
         Model_phon=self.modelp(input_size)
         Model_phon.load_weights(Model_phonemes)
         return Model_phon
 
     def load_scaler(self):
-        file_mu=self.path+"/models/mu.npy"
-        file_std=self.path+"/models/std.npy"
+        file_mu=self.path+"/models/custom/mu.npy"
+        file_std=self.path+"/models/custom/std.npy"
         MU=np.load(file_mu)
         STD=np.load(file_std)
 
@@ -133,8 +135,8 @@ class Phonet:
         input_data=keras.layers.Input(shape=(input_size))
         x=input_data
         x=keras.layers.BatchNormalization()(x)
-        x=keras.layers.Bidirectional(keras.layers.GRU(self.GRU_size, recurrent_dropout=self.recurrent_droput_prob, return_sequences=True, reset_after=False))(x)
-        x=keras.layers.Bidirectional(keras.layers.GRU(self.GRU_size, recurrent_dropout=self.recurrent_droput_prob, return_sequences=True, reset_after=False))(x)
+        x=keras.layers.Bidirectional(keras.layers.GRU(self.GRU_size, recurrent_dropout=self.recurrent_droput_prob, return_sequences=True, reset_after=True))(x)
+        x=keras.layers.Bidirectional(keras.layers.GRU(self.GRU_size, recurrent_dropout=self.recurrent_droput_prob, return_sequences=True, reset_after=True))(x)
         x=keras.layers.Dropout(0.2)(x)
         x = keras.layers.TimeDistributed(keras.layers.Dense(self.hidden_size, activation='relu'))(x)
         x=keras.layers.Dropout(0.2)(x)

@@ -14,7 +14,7 @@ class Phonological:
 
     def __init__(self):
 
-        self.list_phonological2={"vocalic" : ["a","e","i","o","u", "w", "j"],
+        self.list_phonological={"vocalic" : ["a","e","i","o","u", "w", "j"],
                       "consonantal" : ["b", "B","d", "D","f", "F","k","l","m","n", "N","p","r","rr","s", "Z", "T","t","g", "G","tS","S","x", "jj", "J", "L", "z"],
                       "back"        : ["a","o","u", "w"],
                       "anterior"    : ["e","i","j"],
@@ -34,10 +34,10 @@ class Phonological:
                       "labial"      :["m","p","b", "B","f", "F"],
                       "dental"      :["t","d", "D"],
                       "velar"       :["k","g", "G"],
-                      "pause"       :  ["sil", "<p:>",""]}
+                      "pause"       :  ["sil", "<p:>"]}
 
 
-        self.list_phonological={"vocalic" : ["a","e","i","o","u", "w", "j"],
+        self.list_phonological2={"vocalic" : ["a","e","i","o","u", "w", "j"],
                       "consonantal" : ["b", "B","d", "D","f", "F","k","l","m","n", "N","p","r","rr","s", "Z", "T","t","g", "G","tS","S","x", "jj", "J", "L", "z"],
                       "back"        : ["a","o","u", "w"],
                       "anterior"    : ["e","i","j"],
