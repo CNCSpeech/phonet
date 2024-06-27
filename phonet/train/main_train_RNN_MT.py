@@ -188,7 +188,7 @@ if __name__=="__main__":
     num_labels=[2 for j in range(len(keys))]
     Learning_rate=0.0001
     recurrent_droput_prob=0.0
-    epochs=10
+    epochs=30
     batch_size=64
 
 
@@ -201,7 +201,7 @@ if __name__=="__main__":
     if os.path.exists(file_results+'weights.hdf5'):
         modelPH.load_weights(file_results+'weights.hdf5')
         
-    earlystopper = EarlyStopping(monitor='val_loss', patience=15, verbose=0)
+    earlystopper = EarlyStopping(monitor='val_loss', patience=10, verbose=0)
     history=modelPH.fit_generator(generate_data(file_feat_train, batch_size, mu, std), steps_per_epoch=steps_per_epoch, workers=4, use_multiprocessing=True,
     epochs=epochs, shuffle=True, validation_data=generate_data(file_feat_test, batch_size, mu, std), 
     verbose=1, callbacks=[earlystopper, checkpointer], validation_steps=validation_steps)

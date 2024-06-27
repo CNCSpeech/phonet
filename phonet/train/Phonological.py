@@ -34,7 +34,7 @@ class Phonological:
                       "labial"      :["m","p","b", "B","f", "F"],
                       "dental"      :["t","d", "D"],
                       "velar"       :["k","g", "G"],
-                      "pause"       :  ["sil", "<p:>"]}
+                      "pause"       :  ["sil", "<p:>",""]}
 
 
     def get_list_phonological(self):
