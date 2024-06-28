@@ -61,6 +61,6 @@ if __name__=="__main__":
     phon.get_phon_path(PATH+"/audios/", path_results)
 
     ## get the PLLR features from an audio file
-    phon=Phonet(["all"])
-    PLLR=phon.get_PLLR(file_audio)
-    print(PLLR.head())
+    # phon=Phonet(["all"])
+    # PLLR=phon.get_PLLR(file_audio)
+    # print(PLLR.head())
