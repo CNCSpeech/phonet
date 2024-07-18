@@ -23,6 +23,7 @@ from matplotlib import cm
 from Phonological import Phonological
 from tqdm import tqdm
 
+
 class Phonet:
 
     """
@@ -313,7 +314,7 @@ class Phonet:
             plt.legend(loc=8, ncol=2)
 
         plt.tight_layout()
-        plt.savefig(feat_file+"post.png")
+        plt.savefig(feat_file+"post.png", dpi=300)
         plt.show()
 
 

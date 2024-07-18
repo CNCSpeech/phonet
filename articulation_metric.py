@@ -22,7 +22,7 @@ if __name__ == "__main__":
     df = pd.DataFrame(columns=['filename', 'target_accuracy', 'non_target_accuracy'])
 
     # Path to the folder containing CSV files
-    csv_folder = "phonet/fondecyt_pataka_results/"
+    csv_folder = "phonet/fondecyt_pataka_results/PD/"
     for csv_file in os.listdir(csv_folder):
         if csv_file.endswith(".csv"):
             csv_file_path = os.path.join(csv_folder, csv_file)
