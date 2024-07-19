@@ -14,7 +14,7 @@ if __name__=="__main__":
 
     PATH=os.path.dirname(os.path.abspath(__file__))
     
-    path_results=os.path.join(PATH, "fondecyt_pataka_results/PD/")
+    path_results=os.path.join(PATH, "audios/results/")
 
     if not os.path.exists(path_results):
         os.makedirs(path_results)
@@ -26,7 +26,7 @@ if __name__=="__main__":
 
     # get phonological posteriors from de audio files included in a directory
     phon=Phonet(["target_plosives", "non_target_plosives", "target_vowels", "vocalic"])
-    phon.get_phon_path(PATH+"/fondecyt_pataka/PD/", path_results, plot_flag = False)
+    phon.get_phon_path(PATH+"/audios/", path_results, plot_flag = True)
 
     # compute the posteriorgram for an audio_file for different phonological posteriors
     # phon=Phonet(["target_plosives", "non_target_plosives", "target_vowels", "vocalic"])
