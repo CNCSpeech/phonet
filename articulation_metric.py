@@ -22,7 +22,7 @@ if __name__ == "__main__":
     df = pd.DataFrame(columns=['filename', 'target_accuracy', 'non_target_accuracy'])
 
     # Path to the folder containing CSV files
-    csv_folder = "phonet/fondecyt_pataka_results/PD/"
+    csv_folder = "phonet/fondecyt_pataka_results/PD_VAD/"
     for csv_file in os.listdir(csv_folder):
         if csv_file.endswith(".csv"):
             csv_file_path = os.path.join(csv_folder, csv_file)
@@ -32,10 +32,4 @@ if __name__ == "__main__":
             df = pd.concat([df, new_row], ignore_index=True)
     
     # Save the results to a new CSV file
-    df.to_csv("phonet/fondecyt_pataka_scores.csv", index=False)
-
-
-    
-
-    # Save the results to a new CSV file
-    df.to_csv("phonet/fondecyt_pataka_scores_mean.csv", index=False)
+    df.to_csv("phonet/fondecyt_pataka_scores_PD_VAD.csv", index=False)
