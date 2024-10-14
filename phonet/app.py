@@ -18,6 +18,7 @@ def main(file_name):
 # example usage
 if __name__=="__main__":
     cwd = os.getcwd()
+    
     audio_path = os.path.join(cwd, "phonet", "audios", "control_pataka_fondecyt.wav")
     result_path = os.path.join(cwd, "phonet", "audios", "pataka.csv")
     print(main(audio_path))

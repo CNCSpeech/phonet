@@ -102,5 +102,8 @@ venv.bak/
 .mypy_cache/
 #vscode
 .vscode/
+
+#datasets
 uwnu-v1/audio/
 ciempiess/
+pcgita/
